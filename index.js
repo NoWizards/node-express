@@ -3,9 +3,10 @@ const express = require('express'),
 const morgan = require('morgan');
 const hostname = 'localhost';
 const port = 3000;
+const dishRouter = require('./routes/dishRouter');
 
 const app = express();
-
+app.use('/dishes', dishRouter);
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'))
